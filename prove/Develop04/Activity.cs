@@ -1,21 +1,29 @@
 using System;
+using System.Threading;
 
 public class Activity
 {
-    protected string name;
-    protected string description;
-    protected int duration;
+    private string _name;
+    private string _description;
+    protected int _duration;
+
+    public Activity(string name, string description)
+    {
+        _name = name;
+        _description = description;
+    }
 
     public void StartActivity()
     {
-        Console.WriteLine($"Welcome to the {name}");
+        Console.WriteLine($"Welcome to the {_name}");
         Console.WriteLine();
-        Console.WriteLine(description);
+        Console.WriteLine(_description);
         Console.WriteLine();
 
-        Console.WriteLine("How long, in seconds, would you like your session to last?");
-        duration = int.Parse(Console.ReadLine());
+        Console.Write("How long, in seconds, would you like your session to last? ");
+        _duration = int.Parse(Console.ReadLine());
 
+        Console.Clear();
         Console.WriteLine();
         Console.WriteLine("Get ready...");
         ShowSpinner(3);
@@ -23,8 +31,9 @@ public class Activity
 
     public void EndActivity()
     {
+        Console.WriteLine();
         Console.WriteLine("Well done!");
-        Console.WriteLine($"You have completed the {name} for {duration} seconds");
+        Console.WriteLine($"You completed another {_duration} seconds of the {_name}");
 
         ShowSpinner(3);
     }
@@ -37,7 +46,7 @@ public class Activity
         {
             foreach (string s in spinner)
             {
-                Console.Write($"\r{s}   ");
+                Console.Write($"\r{s}");
                 Thread.Sleep(300);
             }
         }
@@ -45,18 +54,7 @@ public class Activity
         Console.WriteLine();
     }
 
-    public void ShowCountdown(int seconds)
-    {
-        for (int i = seconds; i >= 1; i--)
-        {
-            Console.WriteLine(i);
-            Thread.Sleep(1000);
-        }
-    }
-
     public virtual void RunActivity()
     {
-        
     }
-
 }
