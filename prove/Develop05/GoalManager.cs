@@ -32,24 +32,26 @@ public class GoalManager
         _goals.Add(goal);
     }
 
-    public void RecordEvent(int index)
+    public int RecordEvent(int index)
     {
         if (index < 0 || index >= _goals.Count)
         {
             Console.WriteLine("Invalid goal selection");
-            return;
+            return 0;
         }
 
         Goal goal = _goals[index];
         int earned = goal.RecordEvent();
         _score += earned;
         Console.WriteLine($"Congratulations! You have earned {earned} points!");
+    
+        return earned;
     }
-    public void SaveGoals(string filename)
+    public void SaveGoals(string filename, int score)
     {
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            outputFile.WriteLine(_score);
+            outputFile.WriteLine(score);
 
             foreach (Goal goal in _goals)
             {
