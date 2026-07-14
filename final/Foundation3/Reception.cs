@@ -10,13 +10,14 @@ public class Reception : Event
 
     public override void GetFullDetails()
     {
-        Console.WriteLine("Type of event: Reception");
+        Console.WriteLine("Type of Event: Reception");
         base.GetFullDetails();
-        Console.WriteLine($"This email has RSVP: {_rsvpEmail}");
+        Console.WriteLine($"This email has RSVP: {_rsvpEmail}\n");
     }
     public override void GetShortDescription()
     {
-        Console.WriteLine("Type of event: Reception");
+        Console.WriteLine("Type of Event: Reception");
         base.GetShortDescription();
+        Console.WriteLine();
     }
 }

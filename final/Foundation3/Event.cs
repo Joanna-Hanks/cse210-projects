@@ -20,19 +20,14 @@ public class Event
 
     public void GetStandardDetails()
     {
-        Console.WriteLine($"{_title}\n{_description}\nDate: {_date}\n Address: {_address}");
+        Console.WriteLine($"\nTitle: {_title}\n{_description}\nDate & Time: {_date}  at {_time}\nAddress: {_address.GetFullAddress()}\n");
     }
     public virtual void GetFullDetails()
     {
-        Console.WriteLine($"{_title}\n{_description}\nDate: {_date}\n Address: {_address}");        
+        Console.WriteLine($"Title: {_title}\n{_description}\nDate & Time: {_date}  at {_time}\nAddress: {_address.GetFullAddress()}");        
     }
     public virtual void GetShortDescription()
     {
-        Console.WriteLine($"{_title}\n{_date}");
+        Console.WriteLine($"Title: {_title}\n{_date}  at {_time}\n");
     }
-    public Address GetFullAddress()
-    {
-        return _address;
-    }
-
 }

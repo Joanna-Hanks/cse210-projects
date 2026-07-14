@@ -16,7 +16,7 @@ public class Address
 
     public string GetFullAddress()
     {
-        return ($"{_street}\n{_city}, {_state}\n{_country}");
+        return ($"\n{_street}\n{_city}, {_state}\n{_country}");
     }
 
 }

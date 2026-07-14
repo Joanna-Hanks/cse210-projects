@@ -11,14 +11,15 @@ public class Lecture : Event
 
     public override void GetFullDetails()
     {
-        Console.WriteLine("Type of event: Lecture");
+        Console.WriteLine("Type of Event: Lecture");
         base.GetFullDetails();
         Console.WriteLine($"Speaker: {_speaker}");
-        Console.WriteLine($"Room Capacity: {_capacity}");
+        Console.WriteLine($"Room Capacity: {_capacity} people\n");        
     }
     public override void GetShortDescription()
     {
-        Console.WriteLine("Type of event: Lecture");
+        Console.WriteLine("Type of Event: Lecture");
         base.GetShortDescription();
+        Console.WriteLine();
     }
 }
